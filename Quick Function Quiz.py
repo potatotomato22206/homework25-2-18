@@ -14,12 +14,16 @@ def Quizmaster():#This Reads the question index, prints the first question, asks
         GoodAnswer = False  #Set the while error detection var to false
         while GoodAnswer == False:
             inputt = input().strip().upper() #Aquire input answer
+            
+            print(inputt.upper())
+            print(AnswerStore[i].upper())
+
             if inputt == AnswerStore[i].upper(): #If the answer is the same return correct
                 Score += 1
                 print(f'Correct! current score = {Score}')
                 GoodAnswer = True     #Exit error detection
-            elif inputt == ("A" or "B" or "C" or "D"):  #If answer is incorrect, but one of the options, return incorrect
-                print('Incorrect, Sorry.')
+            elif inputt in ["A", "B", "C", "D"]:  #If answer is incorrect, but one of the options, return incorrect
+                print(f'Incorrect, Sorry. The answer was [{AnswerStore[i]}]')
                 GoodAnswer = True       #exit error detection
             else:
                 print("Invalid Answer, Try Again") #answer wasn't in the list or correct, try answer again.
